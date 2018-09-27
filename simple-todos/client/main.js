@@ -1,10 +1,8 @@
-import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
+// ----------------------------------------------------------------------------
+// File Developer: Peter Pak
+// Description: Base script for client startup
+// ----------------------------------------------------------------------------
 
-import '../imports/startup/accounts-config.js';
-import App from '../imports/ui/App.js';
-
-Meteor.startup(() => {
-  render(<App />, document.getElementById('render-target'));
-});
+// File Imports ---------------------------------------------------------------
+import '../imports/startup/client'; // Imports and runs client startup script
+// ----------------------------------------------------------------------------

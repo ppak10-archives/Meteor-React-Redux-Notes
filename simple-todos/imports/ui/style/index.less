@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------------------
+// File Developer: Peter Pak
+// Description: Script to import styles, called by main.less
+// ----------------------------------------------------------------------------
+
+// Style Imports --------------------------------------------------------------
+//@import "./constants.less";               // imports constants style values
+@import "./elements.less";                // imports element stylings
+@import "./classes.less";                 // imports class stylings
+@import "./media.less";                   // imports media styles
+@import "../components/components.less";  // imports components styles
+// ----------------------------------------------------------------------------
+
+#login-buttons {
+  display: block;
+}
+
+.new-task input {
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding-right: 80px;
+  font-size: 1em;
+}
+
+.new-task input:focus{
+  outline: 0;
+}
+
+header .hide-completed {
+  float: right;
+}

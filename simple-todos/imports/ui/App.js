@@ -12,8 +12,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 // ----------------------------------------------------------------------------
 
 // Component Imports ----------------------------------------------------------
-import Task from './components/Task.js';
-import AccountsUIWrapper from './components/AccountsUIWrapper.js';
+import Task from './components/Task/Task.js';
+import AccountsUIWrapper from './components/AccountsUIWrapper/AccountsUIWrapper.js';
 // ----------------------------------------------------------------------------
 
 // Api Imports ----------------------------------------------------------------

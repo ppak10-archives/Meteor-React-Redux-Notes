@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Original Creator: Redux
 // File Developer: Peter Pak
-// Description: Script for React Todo Component
+// Description: Script for React Link Component
 // ----------------------------------------------------------------------------
 
 // Package Imports ------------------------------------------------------------
@@ -10,26 +10,27 @@ import PropTypes from 'prop-types';
 // ----------------------------------------------------------------------------
 
 // Todo Component -------------------------------------------------------------
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick = { onClick }
-    style = {
-      { textDecoration: completed ? 'line-through' : 'none' }
-    }
+const Link = ({ active, children, onClick }) => (
+  <button
+     onClick={onClick}
+     disabled={active}
+     style={{
+         marginLeft: '4px',
+     }}
   >
-    { text }
-  </li>
+    {children}
+  </button>
 )
 // ----------------------------------------------------------------------------
 
 // Proptypes ------------------------------------------------------------------
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+Link.propTypes = {
+  active: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 // ----------------------------------------------------------------------------
 
 // Component Export -----------------------------------------------------------
-export default Todo
+export default Link
 // ----------------------------------------------------------------------------

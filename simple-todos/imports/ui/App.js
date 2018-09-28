@@ -12,8 +12,15 @@ import { withTracker } from 'meteor/react-meteor-data';
 // ----------------------------------------------------------------------------
 
 // Component Imports ----------------------------------------------------------
+import Footer from './components/Footer/Footer.js';
+
 import Task from './components/Task/Task.js';
 import AccountsUIWrapper from './components/AccountsUIWrapper/AccountsUIWrapper.js';
+// ----------------------------------------------------------------------------
+
+// Container Imports ----------------------------------------------------------
+import AddTodo from './containers/AddTodo/AddTodo.js';
+import VisibleTodoList from './containers/VisibleTodoList/VisibleTodoList.js';
 // ----------------------------------------------------------------------------
 
 // Api Imports ----------------------------------------------------------------
@@ -120,6 +127,9 @@ class App extends Component {
         <ul>
           {this.renderTasks()} { /* Calls render Tasks Method */ }
         </ul>
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
 
       </div>
     );

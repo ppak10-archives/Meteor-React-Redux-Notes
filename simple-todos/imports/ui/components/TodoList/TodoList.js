@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Original Creator: Redux
 // File Developer: Peter Pak
-// Description: Script for React Todo Component
+// Description: Script for React Todo List Component
 // ----------------------------------------------------------------------------
 
 // Package Imports ------------------------------------------------------------
@@ -9,27 +9,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // ----------------------------------------------------------------------------
 
-// Todo Component -------------------------------------------------------------
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick = { onClick }
-    style = {
-      { textDecoration: completed ? 'line-through' : 'none' }
-    }
-  >
-    { text }
-  </li>
+// Component Imports ----------------------------------------------------------
+import Todo from '../Todo/Todo.js';
+// ----------------------------------------------------------------------------
+
+// Todo List Component --------------------------------------------------------
+const TodoList = ({ todos, toggleTodo }) => (
+  <ul>
+    {todos.map(todo =>
+      <Todo
+        key={todo.id}
+        {...todo}
+        onClick={() => toggleTodo(todo.id)}
+      />
+    )}
+  </ul>
 )
 // ----------------------------------------------------------------------------
 
 // Proptypes ------------------------------------------------------------------
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      completed: PropTypes.bool.isRequired,
+      text: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
+  toggleTodo: PropTypes.func.isRequired
 }
 // ----------------------------------------------------------------------------
 
 // Component Export -----------------------------------------------------------
-export default Todo
+export default TodoList
 // ----------------------------------------------------------------------------

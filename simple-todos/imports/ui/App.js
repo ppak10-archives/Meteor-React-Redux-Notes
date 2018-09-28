@@ -40,21 +40,6 @@ class App extends Component {
     };
   }
 
-  // Handle Submit Method -----------------------------------------------------
-  // Method called by onSubmit by form
-  handleSubmit(event) {
-    event.preventDefault();
-
-    // Find the text field via the React ref
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
-    // Database call to insert task text
-    Meteor.call('tasks.insert', text); // Uses correct database schema
-
-    // Clear form text input
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
-  }
-
   // Hide Completed Method ----------------------------------------------------
   // State filter to hide completed tasks
   toggleHideCompleted() {
@@ -92,6 +77,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+
+        { /* Meteor Todo Component */ }
         <header>
           <h1>Todo List ({this.props.incompleteCount})</h1>
 
@@ -111,24 +98,19 @@ class App extends Component {
 
           { /* Forms Component */ }
           { /* Conditional to render only if there is a logged in user */ }
-          { this.props.currentUser ?
-            <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-              <input
-                type="text"
-                ref="textInput"
-                placeholder="Type to add new tasks"
-              />
-            </form> : ''
-          }
-
+          { this.props.currentUser ? <AddTodo /> : '' }
         </header>
-
-        { /* Todo Tasks */ }
         <ul>
+
+          { /* Todo Tasks */ }
           {this.renderTasks()} { /* Calls render Tasks Method */ }
         </ul>
-        <AddTodo />
+
+        { /* Redux Todo Component */ }
+        { /* Visible Todo List Component */ }
         <VisibleTodoList />
+
+        { /* Footer for Todo List Component */ }
         <Footer />
 
       </div>

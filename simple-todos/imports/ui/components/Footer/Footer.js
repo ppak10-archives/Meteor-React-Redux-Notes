@@ -13,7 +13,7 @@ import FilterLink from '../../containers/FilterLink/FilterLink.js';
 // ----------------------------------------------------------------------------
 
 // Action Imports -------------------------------------------------------------
-import { VisibilityFilters } from '../../../modules/redux/actions'
+import { VisibilityFilters } from '../../../modules/redux/actions';
 // ----------------------------------------------------------------------------
 
 // Todo List Component --------------------------------------------------------

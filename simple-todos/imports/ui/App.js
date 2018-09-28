@@ -127,7 +127,7 @@ class App extends Component {
 }
 // ----------------------------------------------------------------------------
 
-// App Export -----------------------------------------------------------------
+// Component Export -----------------------------------------------------------
 // Fetches collection data with component wrapped with withTracker and supplies
 // them the underlying App component as a prop
 export default withTracker(() => {  // Wraps container with higher order component

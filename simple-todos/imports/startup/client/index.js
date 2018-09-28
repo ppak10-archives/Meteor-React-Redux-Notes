@@ -5,8 +5,8 @@
 // ----------------------------------------------------------------------------
 
 // Package Imports ------------------------------------------------------------
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

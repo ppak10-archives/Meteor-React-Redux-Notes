@@ -10,11 +10,13 @@ import { combineReducers } from 'redux';
 // Reducer Imports ------------------------------------------------------------
 import testReducers from './testReducers';
 import userReducers from './userReducers';
+import todos from './todos.js';
+import visibilityFilter from './visibilityFilter.js';
 // ----------------------------------------------------------------------------
 
 // Reducer Exports ------------------------------------------------------------
 export default combineReducers({
-  testReducers,
-  userReducers
+  todos,
+  visibilityFilter
 })
 // ----------------------------------------------------------------------------

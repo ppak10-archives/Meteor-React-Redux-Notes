@@ -14,7 +14,7 @@ import Todo from '../Todo/Todo.js';
 // ----------------------------------------------------------------------------
 
 // Todo List Component --------------------------------------------------------
-const TodoList = ({ todos, toggleTodo }) => (
+const TodoList = ({ todos, toggleTodo }) => ( // Props from VisibleTodoList.js
   <ul>
     {todos.map(todo =>
       <Todo

@@ -22,6 +22,7 @@ export const toggleTodo = id => ({
   id
 })
 
+// Types of visibility filters
 export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',

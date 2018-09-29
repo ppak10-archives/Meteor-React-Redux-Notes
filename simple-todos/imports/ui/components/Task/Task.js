@@ -7,6 +7,7 @@
 // Package Imports ------------------------------------------------------------
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 // ----------------------------------------------------------------------------
 
@@ -16,13 +17,11 @@ import { Tasks } from '../../../api/tasks.js';
 
 // Task Component -------------------------------------------------------------
 // Represents a single todo item
-export default class Task extends Component {
+class Task extends Component {
 
   // Checked Method -----------------------------------------------------------
   // Sets checkmark to indicate that task is finished with strikethrough
   toggleChecked() {
-
-    // Set the checked property to the opposite of its current value
     Meteor.call(  // Performs a database call
       'tasks.setChecked', // calls the tasks.setChecked method to edit database
       this.props.task._id,  // sends current task id prop
@@ -90,4 +89,16 @@ export default class Task extends Component {
     );
   }
 }
+// ----------------------------------------------------------------------------
+
+// Proptypes ------------------------------------------------------------------
+Task.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  completed: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired
+}
+// ----------------------------------------------------------------------------
+
+// Component Export -----------------------------------------------------------
+export default Task;
 // ----------------------------------------------------------------------------

@@ -12,7 +12,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 // ----------------------------------------------------------------------------
 
 // Component Imports ----------------------------------------------------------
-import Footer from './components/Footer/Footer.js';
+import Filter from './components/Filter/Filter.js';
 
 import Task from './components/Task/Task.js';
 import AccountsUIWrapper from './components/AccountsUIWrapper/AccountsUIWrapper.js';
@@ -82,6 +82,9 @@ class App extends Component {
         <header>
           <h1>Todo List ({this.props.incompleteCount})</h1>
 
+          { /* Filter for Todo List Component */ }
+          <Filter />
+
           <label className="hide-completed">
             <input
               type="checkbox"
@@ -94,10 +97,10 @@ class App extends Component {
             Hide Completed Tasks
           </label>
 
-          <AccountsUIWrapper /> { /* AccountsUI React wrapper component */ }
+          { /* AccountsUI React wrapper component */ }
+          <AccountsUIWrapper />
 
-          { /* Forms Component */ }
-          { /* Conditional to render only if there is a logged in user */ }
+          { /* Conditional AddTodo Component render if user is logged in */ }
           { this.props.currentUser ? <AddTodo /> : '' }
         </header>
         <ul>
@@ -106,12 +109,8 @@ class App extends Component {
           {this.renderTasks()} { /* Calls render Tasks Method */ }
         </ul>
 
-        { /* Redux Todo Component */ }
-        { /* Visible Todo List Component */ }
+        { /* Visible Todo List Container */ }
         <VisibleTodoList />
-
-        { /* Footer for Todo List Component */ }
-        <Footer />
 
       </div>
     );
@@ -124,7 +123,7 @@ class App extends Component {
 // them the underlying App component as a prop
 export default withTracker(() => {  // Wraps container with higher order component
   Meteor.subscribe('tasks'); // Subscribes to the tasks publication from tasks.js
-
+  console.log(Tasks.find({}, { sort: { createdAt: -1 } }).fetch()) // needs further async
   return {
 
     // Calls database to find Tasks sorted by newest at the top

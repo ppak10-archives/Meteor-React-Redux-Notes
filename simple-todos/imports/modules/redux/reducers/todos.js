@@ -4,6 +4,12 @@
 // Description: Script to hold todo reducers
 // ----------------------------------------------------------------------------
 
+// Api Imports ----------------------------------------------------------------
+import { Tasks } from '../../../api/tasks.js';
+const data = Tasks.find({}, { sort: { createdAt: -1 } }).fetch();
+console.log(data);
+// ----------------------------------------------------------------------------
+
 // Reducer --------------------------------------------------------------------
 const todos = (state = [], action) => {
   switch (action.type) {

@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Original Creator: Redux
 // File Developer: Peter Pak
-// Description: Script for React Todo List Component
+// Description: Script for filter component
 // ----------------------------------------------------------------------------
 
 // Package Imports ------------------------------------------------------------
@@ -17,7 +17,7 @@ import { VisibilityFilters } from '../../../modules/redux/actions';
 // ----------------------------------------------------------------------------
 
 // Todo List Component --------------------------------------------------------
-const Footer = () => (
+const Filter = () => (
   <div>
     <span>Show: </span>
     <FilterLink filter={VisibilityFilters.SHOW_ALL}>
@@ -34,5 +34,5 @@ const Footer = () => (
 // ----------------------------------------------------------------------------
 
 // Component Export -----------------------------------------------------------
-export default Footer
+export default Filter
 // ----------------------------------------------------------------------------
